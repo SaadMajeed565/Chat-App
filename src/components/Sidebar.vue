@@ -2,7 +2,6 @@
 import ContactItem from './Partials/ContactItem.vue';
 import { useChatStore } from '@/stores/chat';
 const chat = useChatStore();
-
 const contacts = chat.chatContacts;
 
 </script>
@@ -17,7 +16,7 @@ const contacts = chat.chatContacts;
         </div>
 
         <!--contacts -->
-        <div class="my-3 overflow-scroll overflow-x-hidden h-1000">
+        <div class="my-3 overflow-auto overflow-x-hidden custom-scrollbar">
             <ContactItem @click="chat.setActiveContact(contact.id)" :user="contact" :key="contact.id" v-for="contact in contacts" />
         </div>
     </div>

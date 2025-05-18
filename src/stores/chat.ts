@@ -7,20 +7,23 @@ export const useChatStore = defineStore('chat', () => {
     const chatContacts =  [
         {
             id: 'dflkdj323kldsd322',
-            name: 'Saad Majeed'
+            name: 'Saad Majeed',
+            contact: '+92 328 1912413'
         },
         {
             id: 'dflkdj3233ldsd322',
-            name: 'Ali Nawaz'
+            name: 'Ali Nawaz',
+            contact: '+92 328 3343893'
         },
         {
             id: 'dflkdj323k2dsd322',
-            name: 'Rehmat Ali'
+            name: 'Rehmat Ali',
+            contact: '+92 328 47239847'
         },
     ];
 
     const setActiveContact = (contact:any) => {
-        activeContact.value = contact
+        activeContact.value = chatContacts.find(contacts => contacts.id == contact);
     }
 
     const getContactMessages = (contact : string) => {

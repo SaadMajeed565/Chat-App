@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { useChatStore } from '@/stores/chat';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 const chat = useChatStore();
-const userChat = ref()
+const activeContact = computed(() => chat.activeContact);
+const userChat = ref();
+
 </script>
 
 <template>
     <div class="basis-full bg-white rounded-2xl justify-between flex flex-col">
         <div class="flex flex-row justify-between p-5 basis-1/6 border-b border-gray-300">
             <div class="flex items-center gap-3 rounded-2xl">
-                <div
-                    class="bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    A</div>
+                <div class="bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-lg">{{ activeContact.name[0] }}</div>
                 <div class="flex flex-col justify-center">
                     <div class="flex flex-row justify-between">
-                        <div class="text-md font-medium text-gray-800">Alex David</div>
+                        <div class="text-md font-medium text-gray-800">{{activeContact?.name}}</div>
                     </div>
                     <div class="text-xs text-gray-500 float-end">Last seen at 02:35am</div>
                 </div>
