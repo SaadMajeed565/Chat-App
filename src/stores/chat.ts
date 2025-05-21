@@ -30,5 +30,20 @@ export const useChatStore = defineStore('chat', () => {
         return 'messages are currently empty'
     }
 
-    return {activeContact, messages, chatContacts, setActiveContact, getContactMessages}
+    const sendMessage = (message:Object) => {
+        fetch('',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    message: message,
+                    receiver: activeContact.value.id,
+                })
+            }
+        )
+    }
+
+    return {activeContact, messages, chatContacts, setActiveContact, getContactMessages, sendMessage}
 });
